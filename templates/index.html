@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ETL Mini Project</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <p ><h1 class="text-success"> Available routes: </h1></p>
+      </div>
+      <div class="row">
+        <ul class="fs-2 ">
+          <li >
+            <a class = "text-secondary text-decoration-none"
+              href="http://localhost:5000/quotes"
+              target="_blank"
+            >
+              Get All the quotes
+            </a>
+          </li>
+          <li>
+            <a class = "text-secondary text-decoration-none"
+              href="http://localhost:5000/authors"
+              target="_blank"
+            >
+              Get All the authors
+            </a>
+          </li>
+          <li>
+            <a class = "text-secondary text-decoration-none"
+              href="http://localhost:5000/authors/Albert%20Einstein"
+              target="_blank"
+            >
+              Get a particular Author (Albert Einstein)
+            </a>
+          </li>
+          <li>
+            <a class = "text-secondary text-decoration-none"
+              href="http://localhost:5000/tags"
+              target="_blank"
+            >
+              Get All the tags
+            </a>
+          </li>
+          <li>
+            <a class = "text-secondary text-decoration-none"
+              href="http://localhost:5000/tags/love"
+              target="_blank"
+            >
+              Get a particular tag ("love" for example)
+            </a>
+          </li>
+          <li>
+            <a class = "text-secondary text-decoration-none"
+              href="http://localhost:5000/top10tags"
+              target="_blank"
+            >
+              Get Top 10 Tags
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>
