@@ -42,25 +42,20 @@ def welcome():
 #################################################
 @app.route("/quotes")
 def quotes():
-    result = {}
-    result_set = engine.execute('''SELECT quote.quote_id, quote.quote_text, quote.author_name, tag.tag
-                                 FROM quote, tag
-                                 WHERE quote.quote_id = tag.quote_id''')
-
-    result['total'] = result_set.rowcount
-
-    quotes = []
-    for row in result_set:
-        quote = {}
-        quote['text'] = row.quote_text
-        quote['author'] = row.author_name
-        tags = tags_for_the_quote(row.quote_id)
-        quote['tags'] = tags
-        quotes.append(quote)
-
-    result['quotes'] = quotes
-
-    return jsonify(result)     
+     data = engine.execute('''SELECT quote.quote_text, quote.author_name, tag.tag
+                            FROM quote, tag
+                            WHERE quote.quote_id = tag.quote_id
+                            group by quote.quote_text, quote.author_name, tag.tag ''').fetchall()
+    #for result in data:
+     #   quote = {'text': result.quote_text.replace('\u201c','').replace('\u201d',''), 'author name': result.author_name, 'tags': result.tag}
+      #  results.append(quote)    
+    #return jsonify(result)
+    results = [list(row) for row in data]
+    test = []
+    for x in range(0, len(results)):
+        result_dict = {'text': results[x][0].replace('\u201c','').replace('\u201d','').replace('\u2032',''), 'author':results[x][1], 'tags' : results[x][2]}
+        test.append(result_dict)
+    return jsonify(test)     
 #     results = []
 #     data = engine.execute('''SELECT quote.quote_text, quote.author_name, tag.tag
 #                             FROM quote, tag
