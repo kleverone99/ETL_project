@@ -42,7 +42,7 @@ def welcome():
 #################################################
 @app.route("/quotes")
 def quotes():
-     data = engine.execute('''SELECT quote.quote_text, quote.author_name, tag.tag
+    data = engine.execute('''SELECT quote.quote_text, quote.author_name, tag.tag
                             FROM quote, tag
                             WHERE quote.quote_id = tag.quote_id
                             group by quote.quote_text, quote.author_name, tag.tag ''').fetchall()
